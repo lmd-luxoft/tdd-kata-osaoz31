@@ -100,3 +100,112 @@ TEST(TDDIntro, Test2N99) {
 	//Assert
 	ASSERT_EQ(expected, actual);
 }
+
+//Задача1
+TEST(TDDIntro, TestTask1_A) {
+	//Arrange
+	Alu myAlu;
+	int expected = 1;
+
+	//Act
+	int actual = myAlu.Add("1");
+
+	//Assert
+	ASSERT_EQ(expected, actual);
+}
+
+TEST(TDDIntro, TestTask1_B) {
+	//Arrange
+	Alu myAlu;
+	int expected = 1;
+
+	//Act
+	int actual = myAlu.Add("1,");
+
+	//Assert
+	ASSERT_EQ(expected, actual);
+}
+
+TEST(TDDIntro, TestTask1_C) {
+	//Arrange
+	Alu myAlu;
+	int expected = 2;
+
+	//Act
+	int actual = myAlu.Add("1,1");
+
+	//Assert
+	ASSERT_EQ(expected, actual);
+}
+
+TEST(TDDIntro, TestTask1_D) {
+	//Arrange
+	Alu myAlu;
+	int expected = 2;
+
+	//Act
+	int actual = myAlu.Add("1,1,");
+
+	//Assert
+	ASSERT_EQ(expected, actual);
+}
+
+TEST(TDDIntro, TestTask1_E) {
+	//Arrange
+	Alu myAlu;
+	int expected = 0;
+
+	//Act
+	int actual = myAlu.Add(",,");
+
+	//Assert
+	ASSERT_EQ(expected, actual);
+}
+
+TEST(TDDIntro, TestTask1_F) {
+	//Arrange
+	Alu myAlu;
+	int expected = 0;
+
+	//Act
+	int actual = myAlu.Add("0, 0");
+
+	//Assert
+	ASSERT_EQ(expected, actual);
+}
+
+//Задача2
+TEST(TDDIntro, TestTask2_A) {
+	//Arrange
+	Alu myAlu;
+	int expected = 0;
+
+	//Act
+	int actual = myAlu.Add("0,0,0");
+
+	//Assert
+	ASSERT_EQ(expected, actual);
+}
+TEST(TDDIntro, TestTask2_B) {
+	//Arrange
+	Alu myAlu;
+	int expected = 6;
+
+	//Act
+	int actual = myAlu.Add("1,2,3");
+
+	//Assert
+	ASSERT_EQ(expected, actual);
+}
+
+TEST(TDDIntro, TestTask2_C) {
+	//Arrange
+	Alu myAlu;
+	int expected = 1111;
+
+	//Act
+	int actual = myAlu.Add("1,10,100,1000");
+
+	//Assert
+	ASSERT_EQ(expected, actual);
+}
