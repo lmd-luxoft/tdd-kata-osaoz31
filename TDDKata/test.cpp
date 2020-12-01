@@ -1,6 +1,7 @@
 #include "pch.h"
 #include "Alu.h"
 
+
 //Тест для пустой строки
 TEST(TDDIntro, Test0) {
 	//Arrange
@@ -205,6 +206,55 @@ TEST(TDDIntro, TestTask2_C) {
 
 	//Act
 	int actual = myAlu.Add("1,10,100,1000");
+
+	//Assert
+	ASSERT_EQ(expected, actual);
+}
+
+//Задача 3
+TEST(TDDIntro, TestTask3_A) {
+	//Arrange
+	Alu myAlu;
+	int expected = 0;
+
+	//Act
+	int actual = myAlu.Add("\n");
+
+	//Assert
+	ASSERT_EQ(expected, actual);
+}
+
+TEST(TDDIntro, TestTask3_B) {
+	//Arrange
+	Alu myAlu;
+	int expected = 3;
+
+	//Act
+	int actual = myAlu.Add("1\n2");
+
+	//Assert
+	ASSERT_EQ(expected, actual);
+}
+
+TEST(TDDIntro, TestTask3_C) {
+	//Arrange
+	Alu myAlu;
+	int expected = 4;
+
+	//Act
+	int actual = myAlu.Add("\n1,3");
+
+	//Assert
+	ASSERT_EQ(expected, actual);
+}
+
+TEST(TDDIntro, TestTask3_D) {
+	//Arrange
+	Alu myAlu;
+	int expected = 9;
+
+	//Act
+	int actual = myAlu.Add("\n1\n3\n5");
 
 	//Assert
 	ASSERT_EQ(expected, actual);
