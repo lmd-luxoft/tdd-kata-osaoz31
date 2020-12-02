@@ -1,52 +1,59 @@
 #include "pch.h"
-#include "Alu.h"
+#include "Calculator.h"
+#include "TestFixture.h"
+
+TEST_F(TestFixture, Sample) {
+	//Arr
+	//std::string op = "2,3,4,5";
+	char op[] = "2,3,4,5";
+	int expected = 14;
+	//Act
+	int actual = calc->Add(op);
+	ASSERT_EQ(expected, actual);
+}
 
 
 //Тест для пустой строки
-TEST(TDDIntro, Test0) {
+TEST_F(TestFixture, Test0) {
 	//Arrange
-	Alu myAlu;
 	int expected = 0;
 
 	//Act
-	int actual = myAlu.Add("");
+	int actual = calc->Add("");
 
 	//Assert
 	ASSERT_EQ(expected, actual);
 }
 
 //Тесты для строки содержащей одно число
-TEST(TDDIntro, Test1N0) {
+TEST_F(TestFixture, Test1N0) {
 	//Arrange
-	Alu myAlu;
 	int expected = 0;
 
 	//Act
-	int actual = myAlu.Add("0");
+	int actual = calc->Add("0");
 
 	//Assert
 	ASSERT_EQ(expected, actual);
 }
 
-TEST(TDDIntro, Test1N1) {
+TEST_F(TestFixture, Test1N1) {
 	//Arrange
-	Alu myAlu;
 	int expected = 1;
 
 	//Act
-	int actual = myAlu.Add("1");
+	int actual = calc->Add("1");
 
 	//Assert
 	ASSERT_EQ(expected, actual);
 }
 
-TEST(TDDIntro, Test1N9) {
+TEST_F(TestFixture, Test1N9) {
 	//Arrange
-	Alu myAlu;
 	int expected = 9;
 
 	//Act
-	int actual = myAlu.Add("9");
+	int actual = calc->Add("9");
 
 	//Assert
 	ASSERT_EQ(expected, actual);
@@ -54,207 +61,190 @@ TEST(TDDIntro, Test1N9) {
 
 
 //Тесты для строки содержащей два числа
-TEST(TDDIntro, Test2N00) {
+TEST_F(TestFixture, Test2N00) {
 	//Arrange
-	Alu myAlu;
 	int expected = 0;
 
 	//Act
-	int actual = myAlu.Add("0,0");
+	int actual = calc->Add("0,0");
 
 	//Assert
 	ASSERT_EQ(expected, actual);
 }
 
-TEST(TDDIntro, Test2N09) {
+TEST_F(TestFixture, Test2N09) {
 	//Arrange
-	Alu myAlu;
 	int expected = 9;
 
 	//Act
-	int actual = myAlu.Add("0,9");
+	int actual = calc->Add("0,9");
 
 	//Assert
 	ASSERT_EQ(expected, actual);
 }
 
-TEST(TDDIntro, Test2N90) {
+TEST_F(TestFixture, Test2N90) {
 	//Arrange
-	Alu myAlu;
 	int expected = 9;
 
 	//Act
-	int actual = myAlu.Add("9,0");
+	int actual = calc->Add("9,0");
 
 	//Assert
 	ASSERT_EQ(expected, actual);
 }
 
-TEST(TDDIntro, Test2N99) {
+TEST_F(TestFixture, Test2N99) {
 	//Arrange
-	Alu myAlu;
 	int expected = 18;
 
 	//Act
-	int actual = myAlu.Add("9,9");
+	int actual = calc->Add("9,9");
 
 	//Assert
 	ASSERT_EQ(expected, actual);
 }
 
 //Задача1
-TEST(TDDIntro, TestTask1_A) {
+TEST_F(TestFixture, TestTask1_A) {
 	//Arrange
-	Alu myAlu;
 	int expected = 1;
 
 	//Act
-	int actual = myAlu.Add("1");
+	int actual = calc->Add("1");
 
 	//Assert
 	ASSERT_EQ(expected, actual);
 }
 
-TEST(TDDIntro, TestTask1_B) {
+TEST_F(TestFixture, TestTask1_B) {
 	//Arrange
-	Alu myAlu;
 	int expected = 1;
 
 	//Act
-	int actual = myAlu.Add("1,");
+	int actual = calc->Add("1,");
 
 	//Assert
 	ASSERT_EQ(expected, actual);
 }
 
-TEST(TDDIntro, TestTask1_C) {
+TEST_F(TestFixture, TestTask1_C) {
 	//Arrange
-	Alu myAlu;
 	int expected = 2;
 
 	//Act
-	int actual = myAlu.Add("1,1");
+	int actual = calc->Add("1,1");
 
 	//Assert
 	ASSERT_EQ(expected, actual);
 }
 
-TEST(TDDIntro, TestTask1_D) {
+TEST_F(TestFixture, TestTask1_D) {
 	//Arrange
-	Alu myAlu;
 	int expected = 2;
 
 	//Act
-	int actual = myAlu.Add("1,1,");
+	int actual = calc->Add("1,1,");
 
 	//Assert
 	ASSERT_EQ(expected, actual);
 }
 
-TEST(TDDIntro, TestTask1_E) {
+TEST_F(TestFixture, TestTask1_E) {
 	//Arrange
-	Alu myAlu;
 	int expected = 0;
 
 	//Act
-	int actual = myAlu.Add(",,");
+	int actual = calc->Add(",,");
 
 	//Assert
 	ASSERT_EQ(expected, actual);
 }
 
-TEST(TDDIntro, TestTask1_F) {
+TEST_F(TestFixture, TestTask1_F) {
 	//Arrange
-	Alu myAlu;
 	int expected = 0;
 
 	//Act
-	int actual = myAlu.Add("0, 0");
+	int actual = calc->Add("0, 0");
 
 	//Assert
 	ASSERT_EQ(expected, actual);
 }
 
 //Задача2
-TEST(TDDIntro, TestTask2_A) {
+TEST_F(TestFixture, TestTask2_A) {
 	//Arrange
-	Alu myAlu;
 	int expected = 0;
 
 	//Act
-	int actual = myAlu.Add("0,0,0");
+	int actual = calc->Add("0,0,0");
 
 	//Assert
 	ASSERT_EQ(expected, actual);
 }
-TEST(TDDIntro, TestTask2_B) {
+TEST_F(TestFixture, TestTask2_B) {
 	//Arrange
-	Alu myAlu;
 	int expected = 6;
 
 	//Act
-	int actual = myAlu.Add("1,2,3");
+	int actual = calc->Add("1,2,3");
 
 	//Assert
 	ASSERT_EQ(expected, actual);
 }
 
-TEST(TDDIntro, TestTask2_C) {
+TEST_F(TestFixture, TestTask2_C) {
 	//Arrange
-	Alu myAlu;
 	int expected = 1111;
 
 	//Act
-	int actual = myAlu.Add("1,10,100,1000");
+	int actual = calc->Add("1,10,100,1000");
 
 	//Assert
 	ASSERT_EQ(expected, actual);
 }
 
 //Задача 3
-TEST(TDDIntro, TestTask3_A) {
+TEST_F(TestFixture, TestTask3_A) {
 	//Arrange
-	Alu myAlu;
 	int expected = 0;
 
 	//Act
-	int actual = myAlu.Add("\n");
+	int actual = calc->Add("\n");
 
 	//Assert
 	ASSERT_EQ(expected, actual);
 }
 
-TEST(TDDIntro, TestTask3_B) {
+TEST_F(TestFixture, TestTask3_B) {
 	//Arrange
-	Alu myAlu;
 	int expected = 3;
 
 	//Act
-	int actual = myAlu.Add("1\n2");
+	int actual = calc->Add("1\n2");
 
 	//Assert
 	ASSERT_EQ(expected, actual);
 }
 
-TEST(TDDIntro, TestTask3_C) {
+TEST_F(TestFixture, TestTask3_C) {
 	//Arrange
-	Alu myAlu;
 	int expected = 4;
 
 	//Act
-	int actual = myAlu.Add("\n1,3");
+	int actual = calc->Add("\n1,3");
 
 	//Assert
 	ASSERT_EQ(expected, actual);
 }
 
-TEST(TDDIntro, TestTask3_D) {
+TEST_F(TestFixture, TestTask3_D) {
 	//Arrange
-	Alu myAlu;
 	int expected = 9;
 
 	//Act
-	int actual = myAlu.Add("\n1\n3\n5");
+	int actual = calc->Add("\n1\n3\n5");
 
 	//Assert
 	ASSERT_EQ(expected, actual);
